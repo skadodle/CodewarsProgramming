@@ -2,7 +2,8 @@ package Codewars;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class IsIsogramTest {
 
@@ -11,7 +12,6 @@ public class IsIsogramTest {
         try {
             IsIsogram.check(null);
         } catch (Exception ex) {
-            ex.getStackTrace();
             System.out.println(ex.getMessage());
         }
     }
