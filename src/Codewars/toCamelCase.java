@@ -6,24 +6,19 @@ public class toCamelCase {
     public static String toCamelCaseFunc(String s) {
         if (s == null)
             return null;
+        if (s.isEmpty())
+            return "";
 
-        boolean flag = false;
         String result = "";
-        for (int i = 0; i < s.length(); i++) {
+        boolean flag = true;
+
+        for (String word : s.split("[_-]")) {
             if (flag) {
-                if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z')
-                    result += (char) (s.charAt(i) + ('A' - 'a'));
-                else
-                    result += s.charAt(i);
+                result += word.charAt(0) + word.toLowerCase().substring(1);
                 flag = false;
-            } else if (s.charAt(i) == '-' || s.charAt(i) == '_')
-                flag = true;
-            else {
-                if (s.charAt(i) >= 'A' && s.charAt(i) <= 'Z' && i != 0)
-                    result += (char) (s.charAt(i) + ('a' - 'A'));
-                else
-                    result += s.charAt(i);
             }
+            else
+                result += word.toUpperCase().charAt(0) + word.toLowerCase().substring(1);
         }
         return result;
     }
